@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+#cal{
+    display: flex;
+    background-color:#1a1b28;
+    height: 480px;
+    width: 340px;
+    margin-top: 80px;
+    border-radius: 12px;
+    align-items :flex-end
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+button{
+    background-color: #52c9dc;
+    color: #fefefe;
+    height: 65px;
+    width:  65px;
+    border-radius: 5px;
+    font-size: larger;
+    
+    
+}
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 65px); /* Adjusts for 4 buttons per row */
+    gap: 10px; /* Adds spacing between buttons */
+    padding: 22px;
+    width: 300px; /* Adjusted to fit within #cal */
+}
