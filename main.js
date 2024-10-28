@@ -27,21 +27,22 @@ function mul(a,b){
 function div(a,b){
     return a/b
 }
-function operate(a,b,operate){
-    if (operate=='+'){
-        add(a,b)
+function operate(a,b,op){
+    if (op=='+'){
+        return add(a,b)
 
-    }else if (operate=='-'){
-        sub(a,b)
-    }else if (operate=='*'){
-        mul(a,b)
+    }else if (op=='-'){
+        return sub(a,b)
+    }else if (op=='*'){
+        return mul(a,b)
     }else{
-        div(a,b)
+        return div(a,b)
     }
 
 }
 let a
 let b
+let op
 let active=false
 
 let display=document.getElementById('text')
@@ -52,13 +53,15 @@ const operator={
     '/':document.getElementById('/')
 }
 const equal=document.getElementById('=');
-const buttons=document.querySelectorAll('button')
+
+const backspace=document.getElementById('backspace')
 if (!active){
     for (const i in operator){
         operator[i].addEventListener('click',()=>{
             Object.values(operator).forEach(btn => btn.style.backgroundColor = '#52c9dc');
             active=true
-            a=display.textContent
+            a=parseInt(display.textContent)
+            op=i
             operator[i].style.backgroundColor='red'
         });
     }
@@ -66,11 +69,15 @@ if (!active){
    
 
 equal.addEventListener('click',()=>{
-    b=display.textContent
+    b=parseInt(display.textContent)
     for (const i in operator){
         operator[i].style.backgroundColor='#52c9dc';
     }
     console.log(a,b)
+    console.log(op)
+    const result=operate(a,b,op)
+    console.log(result)
+    display.textContent=operate(a,b,op)
 })
 
 for (let i =0 ; i <10 ;i++){
