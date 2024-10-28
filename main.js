@@ -84,3 +84,6 @@ for (let i =0 ; i <10 ;i++){
     assignNumberButton(i.toString(),i)
 
 }
+backspace.addEventListener('click',()=>{
+    display.textContent=display.textContent.slice(0,display.textContent.length-1)
+})
