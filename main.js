@@ -53,8 +53,10 @@ const operator={
     '/':document.getElementById('/')
 }
 const equal=document.getElementById('=');
-
+const AC=document.getElementById('clear')
 const backspace=document.getElementById('backspace')
+
+
 if (!active){
     for (const i in operator){
         operator[i].addEventListener('click',()=>{
@@ -86,4 +88,7 @@ for (let i =0 ; i <10 ;i++){
 }
 backspace.addEventListener('click',()=>{
     display.textContent=display.textContent.slice(0,display.textContent.length-1)
+})
+AC.addEventListener('click',()=>{
+    location.reload();
 })
